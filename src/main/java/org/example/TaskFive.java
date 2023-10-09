@@ -36,6 +36,11 @@ public class TaskFive {
         return StreamSupport.stream(spliterator, false);
     }
     public static void main(String[] args) {
+        Stream<Integer> first = Stream.of(1, 2, 3, 4, 5, 6, 7);
+        Stream<Integer> second = Stream.of(20, 13, 15);
 
+        Stream<Integer> result = zip(first, second);
+
+        result.forEach(System.out::println);
     }
 }
