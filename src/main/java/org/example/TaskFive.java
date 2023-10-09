@@ -11,7 +11,7 @@ public class TaskFive {
         Iterator<T> firstStream = first.iterator();
         Iterator<T> secondStream = second.iterator();
 
-        Iterator<T> result = new Iterator<>() {
+        Iterator<T> iterator = new Iterator<>() {
             private boolean useFirst = true;
             @Override
             public boolean hasNext() {
@@ -30,7 +30,7 @@ public class TaskFive {
             }
         };
 
-        Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(result,
+        Spliterator<T> spliterator = Spliterators.spliteratorUnknownSize(iterator,
                 Spliterator.ORDERED | Spliterator.NONNULL);
 
         return StreamSupport.stream(spliterator, false);
