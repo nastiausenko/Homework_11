@@ -12,7 +12,7 @@ public class TaskFive {
         Iterator<T> secondStream = second.iterator();
 
         Iterator<T> result = new Iterator<>() {
-            private boolean nextItem = true;
+            private boolean useFirst = true;
             @Override
             public boolean hasNext() {
                 return firstStream.hasNext() && secondStream.hasNext();
@@ -20,11 +20,11 @@ public class TaskFive {
 
             @Override
             public T next() {
-                if (nextItem){
-                    nextItem = false;
+                if (useFirst){
+                    useFirst = false;
                     return firstStream.next();
                 } else {
-                    nextItem = true;
+                    useFirst = true;
                     return secondStream.next();
                 }
             }
